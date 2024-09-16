@@ -1,0 +1,78 @@
+{
+  "name": "file-organizer-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./desktop/electron.js",
+  "scripts": {
+    "dev": "next dev",
+    "build:self-host": "next build",
+    "build": "npm run db:migrate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "dotenv -c -- drizzle-kit migrate",
+    "db:studio": "dotenv -c -- drizzle-kit studio",
+    "db:studio:prod": "dotenv -e .env.production.local -- drizzle-kit studio"
+  },
+  "build": {
+    "appId": "com.file-organizer.app",
+    "productName": "File Organizer 2000",
+    "mac": {
+      "icon": "public/icon.icns"
+    },
+    "files": [
+      "out/**/*",
+      "desktop/**/*",
+      "package.json",
+      "public/**/*"
+    ]
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.9",
+    "@ai-sdk/openai": "^0.0.44",
+    "@clerk/nextjs": "^5.0.2",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@stripe/stripe-js": "^3.3.0",
+    "@tiptap/core": "^2.5.7",
+    "@tiptap/starter-kit": "^2.5.7",
+    "@types/node": "20.8.5",
+    "@types/react": "18.2.28",
+    "@types/react-dom": "18.2.13",
+    "@unkey/api": "^0.19.4",
+    "@vercel/postgres": "^0.8.0",
+    "ai": "^3.3.5",
+    "autoprefixer": "10.4.16",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-kit": "^0.22.7",
+    "drizzle-orm": "^0.31.2",
+    "electron-is-dev": "^3.0.1",
+    "eslint": "8.51.0",
+    "eslint-config-next": "13.5.4",
+    "lucide-react": "^0.287.0",
+    "next": "^14.2.2",
+    "ollama-ai-provider": "^0.7.0",
+    "openai": "^4.33.1",
+    "postcss": "8.4.31",
+    "posthog-js": "^1.147.0",
+    "posthog-node": "^4.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "stripe": "^15.3.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "3.3.3",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "5.2.2",
+    "wait-on": "^7.2.0",
+    "youtube-transcript": "^1.2.1"
+  },
+  "devDependencies": {
+    "electron": "^30.0.6",
+    "electron-builder": "^24.13.3"
+  }
+}
